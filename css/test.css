@@ -326,7 +326,8 @@
     nav ul,.nav-cta{display:none;}
     .menu-toggle{display:block;}
     section{padding:80px 6%;}
-    footer{flex-direction:column;align-items:flex-start;}
+    footer{flex-direction:column;align-items:center;text-align:center;gap:28px;}
+    .footer-links{flex-direction:column;gap:18px;}
     .cpet-grid{grid-template-columns:1fr;gap:36px;}
     .llevas-grid{grid-template-columns:1fr;}
     .track{grid-template-columns:1fr;gap:36px;}
@@ -341,5 +342,37 @@
     .menu-toggle{
       padding:10px;
       line-height:1;
+    }
+
+    /* Imagen 2 — quitar el hueco vertical gigante del hero en móvil */
+    .hero{
+      min-height:auto;
+      justify-content:flex-start;
+    }
+
+    /* Imagen 1 — evitar que la flecha del CTA se quede sola en una línea */
+    .btn-primary, .btn-secondary{
+      white-space:nowrap;
+    }
+
+    /* Imagen 5 — la curva del protocolo ocupa todo el ancho en móvil, sin márgenes sobrantes */
+    .protocol-chart{
+      margin-left:-6%;
+      margin-right:-6%;
+      max-width:none;
+      padding:22px 16px 18px;
+    }
+    .protocol-chart__title{
+      font-size:0.6rem;
+    }
+    .protocol-chart__stat strong{
+      font-size:clamp(0.95rem, 5vw, 1.2rem);
+    }
+  }
+
+  @media (max-width:400px){
+    .btn-primary, .btn-secondary{
+      font-size:0.82rem;
+      padding:15px 22px;
     }
   }
