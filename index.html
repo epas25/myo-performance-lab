@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYO Performance Lab — Inicio</title>
+<meta name="description" content="Laboratorio de fisiología y rendimiento deportivo en Lleida. Tests VO2máx y RMR presenciales, y programación online basada en datos reales. Powered by Science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="inicio">
+
+<div class="brand-anatomy-bg" aria-hidden="true"></div>
+
+<div id="header"></div>
+
+<main>
+<section class="hero" id="hero">
+  <div class="hero-bg-grid"></div>
+
+  <div class="hero-waveform-ambient" id="hero-waveform-ambient">
+    <svg viewBox="0 0 1000 600" preserveAspectRatio="none">
+      <path class="amb-line a3" id="amb-line-3" d="" />
+      <path class="amb-line a2" id="amb-line-2" d="" />
+      <path class="amb-line a1" id="amb-line-1" d="" />
+    </svg>
+  </div>
+
+  <div class="parallax-field" id="parallax-field">
+    <div class="p-layer back">
+      <span class="p-wedge" style="height:70px; left:8%; top:18%;"></span>
+      <span class="p-wedge" style="height:50px; left:12%; top:22%;"></span>
+      <span class="p-wedge" style="height:90px; left:88%; top:60%;"></span>
+      <span class="p-wedge" style="height:60px; left:92%; top:66%;"></span>
+      <span class="p-wedge" style="height:40px; left:6%; top:80%;"></span>
+      <span class="p-wedge" style="height:100px; left:60%; top:6%;"></span>
+    </div>
+    <div class="p-layer mid">
+      <span class="p-wedge" style="height:110px; left:78%; top:12%;"></span>
+      <span class="p-wedge" style="height:80px; left:82%; top:16%;"></span>
+      <span class="p-wedge" style="height:60px; left:86%; top:20%;"></span>
+      <span class="p-wedge" style="height:70px; left:4%; top:68%;"></span>
+      <span class="p-wedge" style="height:50px; left:8%; top:72%;"></span>
+      <span class="p-wedge" style="height:90px; left:2%; top:8%;"></span>
+      <span class="p-wedge" style="height:65px; left:70%; top:78%;"></span>
+    </div>
+    <div class="p-layer front">
+      <span class="p-wedge" style="height:150px; left:90%; top:4%;"></span>
+      <span class="p-wedge" style="height:110px; left:94%; top:10%;"></span>
+      <span class="p-wedge" style="height:80px; left:97%; top:16%;"></span>
+      <span class="p-wedge" style="height:130px; left:0%; top:40%;"></span>
+      <span class="p-wedge" style="height:90px; left:3%; top:48%;"></span>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Powered by Science</div>
+    <h1>Deja de adivinar. <em>Empieza a medir.</em></h1>
+    <p class="hero-sub">Tu VO2máx y tus zonas de entrenamiento, medidos en laboratorio. No estimados por una pulsera.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary">Reserva tu llamada →</a>
+      <a href="https://wa.me/34648884513" class="btn-icon-wa" aria-label="Escríbenos por WhatsApp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.4-4.9A8.9 8.9 0 1 1 8.1 19.5L3 21z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.8 8.6c0 4.1 3 7.4 7.1 7.6.5 0 1-.3 1.2-.8l.3-.9a1 1 0 0 0-.5-1.2l-1.6-.8a1 1 0 0 0-1.1.2l-.4.4a6.6 6.6 0 0 1-2.6-2.6l.4-.4a1 1 0 0 0 .2-1.1l-.8-1.6a1 1 0 0 0-1.2-.5l-.9.3c-.5.2-.8.6-.1 1.4z"/></svg>
+      </a>
+      <span class="hero-note"><strong>30 min</strong> · gratis · sin compromiso</span>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat" data-reveal>
+    <div class="stat-num" data-count="30" data-suffix="+">0</div>
+    <div class="stat-label">Tests VO2máx realizados</div>
+  </div>
+  <div class="stat" data-reveal>
+    <div class="stat-num" data-count="50" data-suffix="+">0</div>
+    <div class="stat-label">Atletas entrenados con datos reales</div>
+  </div>
+</div>
+
+<div class="stats-typewriter" data-reveal>
+  <span class="tw-text" id="tw-text" data-full="Informe entregado el mismo día"></span><span class="tw-cursor"></span>
+</div>
+
+<div class="angle-bridge to-light"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section id="que-medimos" class="section-light">
+  <div class="section-head section-head--center" data-reveal>
+    <div class="eyebrow eyebrow--center eyebrow--bold">Qué medimos</div>
+    <h2>VO2 Máx · RMR · Zonas reales</h2>
+    <p class="section-sub">Una imagen completa de tu rendimiento, en una sola sesión.</p>
+  </div>
+  <div class="measure-grid">
+    <div class="measure-card" data-reveal>
+      <div class="measure-icon"><svg viewBox="0 0 48 48" fill="none" stroke-width="2"><path d="M6 30c4 0 4-14 8-14s4 20 8 20 4-26 8-26 4 20 8 20 4-14 4-14" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>VO2 MÁX</h3>
+      <p>Tu capacidad real de consumir oxígeno bajo esfuerzo, medida con test incremental — no estimada por un algoritmo.</p>
+    </div>
+    <div class="measure-card" data-reveal>
+      <div class="measure-icon"><svg viewBox="0 0 48 48" fill="none" stroke-width="2"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l7 5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>METABOLISMO EN REPOSO (RMR)</h3>
+      <p>Cuántas calorías quema tu cuerpo en reposo. La base real para planificar nutrición y carga de entrenamiento.</p>
+    </div>
+    <div class="measure-card" data-reveal>
+      <div class="measure-icon"><svg viewBox="0 0 48 48" fill="none" stroke-width="2"><rect x="6" y="8" width="10" height="32"/><rect x="19" y="16" width="10" height="24"/><rect x="32" y="22" width="10" height="18"/></svg></div>
+      <h3>ZONAS DE ENTRENAMIENTO REALES</h3>
+      <p>Tus umbrales exactos de intensidad, no un porcentaje genérico de tu frecuencia cardíaca máxima estimada.</p>
+    </div>
+  </div>
+</section>
+
+<div class="angle-bridge to-dark"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section id="por-que-myo">
+  <div class="section-grid-bg" data-parallax="0.04"></div>
+  <div class="section-head section-head--center" data-reveal>
+    <div class="eyebrow eyebrow--center eyebrow--bold">Por qué MYO</div>
+    <h2>Lo que nos mueve.</h2>
+  </div>
+  <div class="values-grid">
+    <div class="flip-card" data-reveal tabindex="0">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" data-letter="P">
+          <h3>Precisión</h3>
+          <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 1 0-2.5 5.8M20 5v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="flip-face flip-back">
+          <p>Cada dato sale de un protocolo validado en laboratorio, nunca de un algoritmo estimado.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card" data-reveal tabindex="0">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" data-letter="R">
+          <h3>Rendimiento</h3>
+          <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 1 0-2.5 5.8M20 5v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="flip-face flip-back">
+          <p>Hablamos el idioma del atleta que compite, no del que simplemente "hace deporte".</p>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card" data-reveal tabindex="0">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" data-letter="A">
+          <h3>Accesibilidad</h3>
+          <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 1 0-2.5 5.8M20 5v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="flip-face flip-back">
+          <p>La ciencia que antes era solo para la élite, ahora está al alcance de cualquiera que entrena en serio.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card" data-reveal tabindex="0">
+      <div class="flip-inner">
+        <div class="flip-face flip-front" data-letter="I">
+          <h3>Innovación</h3>
+          <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 1 0-2.5 5.8M20 5v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="flip-face flip-back">
+          <p>Tecnología y método al servicio del dato — nunca al revés.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="section-head section-head--center" data-reveal>
+    <div class="eyebrow eyebrow--center eyebrow--bold">Cómo funciona</div>
+    <h2>Cuatro pasos, un objetivo</h2>
+  </div>
+  <div class="stairs">
+    <div class="stair-step" data-reveal data-step="1">
+      <div class="stair-step-head"><span class="step-num">01</span><h3>Diagnóstico inicial (gratis)</h3></div>
+      <p>30 minutos por videollamada o teléfono. Vemos tu objetivo y qué servicio encaja mejor contigo.</p>
+    </div>
+    <div class="stair-step" data-reveal data-step="2">
+      <div class="stair-step-head"><span class="step-num">02</span><h3>Test o programación</h3></div>
+      <p>Según lo que decidamos juntos: test presencial en Lleida, programación online, o ambos.</p>
+    </div>
+    <div class="stair-step" data-reveal data-step="3">
+      <div class="stair-step-head"><span class="step-num">03</span><h3>Informe con tus datos</h3></div>
+      <p>Zonas de entrenamiento, metabolismo y puntos fuertes/débiles, explicados sin tecnicismos.</p>
+    </div>
+    <div class="stair-step" data-reveal data-step="4">
+      <div class="stair-step-head"><span class="step-num">04</span><h3>Seguimiento</h3></div>
+      <p>Si sigues con programación online, ajustamos el plan con datos reales, no con plantillas.</p>
+    </div>
+  </div>
+</section>
+
+<div class="angle-bridge to-light"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section id="servicios" class="section-light">
+  <span class="drift-wedge drift-wedge--services" data-parallax="-0.06"></span>
+  <div class="section-head section-head--center" data-reveal>
+    <div class="eyebrow eyebrow--center eyebrow--bold">Servicios</div>
+    <h2>Dos caminos, un mismo punto de&nbsp;partida</h2>
+  </div>
+  <div class="services-grid">
+    <a href="#" class="service-card" data-reveal>
+      <span class="service-tag">Presencial · Lleida</span>
+      <h3>Test VO2máx / RMR</h3>
+      <p>Conoce tus zonas reales de entrenamiento y tu metabolismo en una sesión de laboratorio, con informe el mismo día.</p>
+      <span class="service-link">Ver el test <span class="arrow">→</span></span>
+    </a>
+    <a href="#" class="service-card" data-reveal>
+      <span class="service-tag">Online · Atletas híbridos</span>
+      <h3>Programación Online</h3>
+      <p>Planificación de fuerza y resistencia basada en tus datos reales — el diferenciador frente a una plantilla genérica.</p>
+      <span class="service-link">Ver la programación <span class="arrow">→</span></span>
+    </a>
+  </div>
+</section>
+
+<div class="angle-bridge to-dark"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section id="prueba-social">
+  <div class="hero-waveform-ambient" id="hero-waveform-ambient-2">
+    <svg viewBox="0 0 1000 600" preserveAspectRatio="none">
+      <path class="amb-line a3" id="amb-line-3b" d="" />
+      <path class="amb-line a2" id="amb-line-2b" d="" />
+      <path class="amb-line a1" id="amb-line-1b" d="" />
+    </svg>
+  </div>
+  <div class="proof" data-reveal>
+    <p class="proof-quote">Ya hay <span class="lime">30+ tests</span> y <span class="lime">50+ atletas</span> entrenando con datos de laboratorio, no con estimaciones.</p>
+    <p class="proof-for">Corredores, ciclistas, triatletas y atletas de Hyrox/DEKA que dejaron de adivinar sus zonas de entrenamiento.</p>
+    <h2 class="proof-cta-heading">Es hora de entrenar con datos reales</h2>
+    <div class="cta-group">
+      <a href="#" class="btn-primary">Reserva tu llamada gratuita →</a>
+      <a href="https://wa.me/34648884513" class="btn-secondary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.4-4.9A8.9 8.9 0 1 1 8.1 19.5L3 21z" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.8 8.6c0 4.1 3 7.4 7.1 7.6.5 0 1-.3 1.2-.8l.3-.9a1 1 0 0 0-.5-1.2l-1.6-.8a1 1 0 0 0-1.1.2l-.4.4a6.6 6.6 0 0 1-2.6-2.6l.4-.4a1 1 0 0 0 .2-1.1l-.8-1.6a1 1 0 0 0-1.2-.5l-.9.3c-.5.2-.8.6-.1 1.4z"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="footer"></div>
+
+<script src="js/incluir.js" defer></script>
+<script src="js/script.js" defer></script>
+</body>
+</html>

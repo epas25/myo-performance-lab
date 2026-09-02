@@ -1,0 +1,787 @@
+:root{
+    --black:#000000;
+    --near-black:#0a0a0a;
+    --card:#131313;
+    --card-border:#232323;
+    --white:#ffffff;
+    --gray:#8a8f98;
+    --lime:#b7ff00;
+    --font-display:'Orbitron', sans-serif;   /* logo, eyebrows, cifras, numeración — usos cortos */
+    --font-head:'Rajdhani', sans-serif;      /* titulares largos: H1 hero, H2 de sección */
+    --font-body:'Space Grotesk', sans-serif; /* cuerpo de texto */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:var(--font-body);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* imagen de marca — trazado anatómico, fondo fijo muy sutil anclado a la derecha.
+     Se ve en los huecos negros de la web; las secciones con fondo propio (claras, tarjetas) lo tapan con normalidad. */
+  .brand-anatomy-bg{
+    position:fixed;
+    top:0; right:0;
+    width:min(52vw, 720px);
+    height:100vh;
+    background-image:url('../assets/img/brand-anatomy.webp');
+    background-position:right center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    opacity:0.5;
+    z-index:0;
+    pointer-events:none;
+  }
+
+
+  /* ===== NAV ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:26px 6%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .logo{
+    display:flex;align-items:center;
+  }
+  .logo img{
+    height:46px;
+    width:auto;
+    display:block;
+  }
+  nav ul{list-style:none;display:flex;gap:36px;}
+  nav a{
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gray);
+    transition:color .2s;
+  }
+  nav a:hover{color:var(--white);}
+  nav a.active{color:var(--white);}
+  .nav-cta{
+    background:var(--lime);
+    color:var(--black);
+    padding:10px 22px;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border-radius:2px;
+    transition:transform .15s;
+  }
+  .nav-cta:hover{transform:translateY(-2px);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.6rem;cursor:pointer;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:142px 6% 40px;
+    overflow:hidden;
+    perspective:1200px;
+  }
+  .hero-bg-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 75%);
+    pointer-events:none;
+  }
+
+  /* ambient full-hero waveform — background presence, visible from first glance */
+  .hero-waveform-ambient{
+    position:absolute;inset:0;
+    z-index:0;
+    pointer-events:none;
+    opacity:0.85;
+    transition:transform .2s ease-out;
+    will-change:transform;
+  }
+  .hero-waveform-ambient svg{width:100%;height:100%;display:block;}
+  .amb-line{
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .amb-line.a1{stroke:rgba(183,255,0,0.5);stroke-width:2.5;filter:drop-shadow(0 0 12px rgba(183,255,0,0.35));}
+  .amb-line.a2{stroke:rgba(183,255,0,0.22);stroke-width:1.5;}
+  .amb-line.a3{stroke:rgba(255,255,255,0.08);stroke-width:1;}
+
+  /* parallax wedge field — motivo de velocidad, 3 capas de profundidad */
+  .parallax-field{
+    position:absolute;inset:0;
+    pointer-events:none;
+    z-index:1;
+  }
+  .p-layer{
+    position:absolute;inset:0;
+    transition:transform .15s ease-out;
+    will-change:transform;
+  }
+  .p-wedge{
+    position:absolute;
+    width:12px;
+    background:var(--lime);
+    transform:skewX(-20deg);
+    opacity:0.4;
+  }
+  .p-layer.back .p-wedge{background:rgba(255,255,255,0.08); width:9px;}
+  .p-layer.mid .p-wedge{background:rgba(183,255,0,0.2); width:11px;}
+  .p-layer.front .p-wedge{background:rgba(183,255,0,0.42); width:14px;}
+
+  .hero-content{position:relative;z-index:3;}
+
+  .hero-eyebrow{
+    font-family:var(--font-display);
+    font-size:0.78rem;
+    letter-spacing:0.25em;
+    color:var(--lime);
+    text-transform:uppercase;
+    margin-bottom:24px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .hero-eyebrow::before{
+    content:'';
+    width:34px;height:1px;
+    background:var(--lime);
+  }
+  .hero h1{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(2.6rem, 6.6vw, 5.8rem);
+    line-height:1.06;
+    letter-spacing:-0.01em;
+    max-width:16ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--lime);
+  }
+  .hero-sub{
+    margin-top:26px;
+    font-size:clamp(1rem, 1.6vw, 1.25rem);
+    color:var(--gray);
+    max-width:46ch;
+  }
+  .hero-ctas{
+    margin-top:44px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--lime);
+    color:var(--black);
+    padding:17px 34px;
+    font-weight:700;
+    font-size:0.9rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    border-radius:2px;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:transform .18s, box-shadow .18s;
+    font-family:var(--font-body);
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px -8px rgba(183,255,0,0.5);
+  }
+  .hero-note{
+    font-size:0.82rem;
+    color:var(--gray);
+  }
+  .hero-note strong{color:var(--white);}
+
+  /* WhatsApp — icono tipo "logo", solo trazo, nunca relleno lima (reservado a CTA principal) */
+  .btn-icon-wa{
+    width:52px;height:52px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.25);
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--white);
+    flex-shrink:0;
+    transition:border-color .18s, color .18s, transform .18s;
+  }
+  .btn-icon-wa svg{width:23px;height:23px;}
+  .btn-icon-wa:hover{
+    border-color:var(--lime);
+    color:var(--lime);
+    transform:translateY(-3px);
+  }
+
+  /* WhatsApp — botón secundario de texto, para el CTA final junto a "Reserva tu llamada" */
+  .cta-group{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .btn-secondary{
+    background:transparent;
+    color:var(--white);
+    border:1px solid rgba(255,255,255,0.28);
+    padding:16px 32px;
+    font-weight:700;
+    font-size:0.9rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    border-radius:2px;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:transform .18s, border-color .18s, color .18s;
+    font-family:var(--font-body);
+  }
+  .btn-secondary svg{width:18px;height:18px;flex-shrink:0;}
+  .btn-secondary:hover{
+    border-color:var(--lime);
+    color:var(--lime);
+    transform:translateY(-3px);
+  }
+
+  /* ===== SECCIONES CLARAS (blanco) — para dar aire y respetar el 25% blanco del brandbook ===== */
+  .section-light{
+    background:var(--white);
+    color:var(--black);
+  }
+  /* el lima de marca se queda EXACTO — solo se usa en trazos gruesos (raya, iconos) o como
+     resaltador de fondo, nunca como color de texto fino sobre blanco (ahí no tiene contraste) */
+  .section-light .eyebrow{color:var(--black);}
+  .section-light .eyebrow::before{background:var(--lime);}
+  .section-light .section-head p{color:rgba(0,0,0,0.6);}
+  .section-light .measure-card p{color:rgba(0,0,0,0.6);}
+  .section-light .measure-icon svg{stroke:var(--lime);}
+
+  /* ===== FRANJAS DE TRANSICIÓN — corte diagonal (motivo de velocidad), sin degradado ni grises ===== */
+  .angle-bridge{
+    position:relative;
+    height:160px;
+    margin-top:-1px;
+    margin-bottom:-1px;
+    overflow:hidden;
+  }
+  .angle-bridge .wedge-a, .angle-bridge .wedge-b{
+    position:absolute;
+    inset:0;
+  }
+  .angle-bridge.to-light .wedge-a{background:#000; clip-path:polygon(0 0, 100% 0, 0 100%);}
+  .angle-bridge.to-light .wedge-b{background:#fff; clip-path:polygon(100% 0, 100% 100%, 0 100%);}
+  .angle-bridge.to-dark .wedge-a{background:#fff; clip-path:polygon(0 0, 100% 0, 0 100%);}
+  .angle-bridge.to-dark .wedge-b{background:#000; clip-path:polygon(100% 0, 100% 100%, 0 100%);}
+
+  /* ===== STATS BAR ===== */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    position:relative;
+  }
+  .stat{
+    padding:52px 6%;
+    text-align:center;
+    position:relative;
+  }
+  /* divisor sutil entre cifras: línea fina en lima que se desvanece arriba/abajo, no un borde gris de extremo a extremo */
+  .stat:not(:first-child)::before{
+    content:'';
+    position:absolute;
+    left:0; top:50%;
+    transform:translateY(-50%);
+    width:1px;
+    height:44%;
+    background:linear-gradient(180deg, transparent, rgba(183,255,0,0.35), transparent);
+  }
+  .stat-num{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:clamp(2.6rem,5vw,3.6rem);
+    color:var(--lime);
+  }
+  .stat-label{
+    margin-top:8px;
+    font-size:0.85rem;
+    color:var(--gray);
+    letter-spacing:0.03em;
+  }
+
+  /* franja inferior con el dato "mismo día" — efecto máquina de escribir, separada de los números */
+  .stats-typewriter{
+    padding:44px 6%;
+    text-align:center;
+    background:var(--near-black);
+  }
+  .tw-text{
+    font-family:var(--font-display);
+    font-size:clamp(1.05rem, 2vw, 1.5rem);
+    font-weight:700;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--lime);
+  }
+  .tw-cursor{
+    display:inline-block;
+    width:3px;
+    height:1em;
+    background:var(--lime);
+    margin-left:4px;
+    vertical-align:-0.12em;
+    animation:tw-blink 0.9s step-end infinite;
+  }
+  @keyframes tw-blink{
+    0%, 49%{opacity:1;}
+    50%, 100%{opacity:0;}
+  }
+
+  /* ===== SECTION SHARED ===== */
+  section{padding:120px 6%; position:relative;}
+
+  /* rejilla de fondo muy tenue, reutilizada fuera del hero — parallax de scroll sutil */
+  .section-grid-bg{
+    position:absolute;inset:-10% 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 50%, black 10%, transparent 70%);
+    pointer-events:none;
+    will-change:transform;
+    z-index:0;
+  }
+  #por-que-myo > *:not(.section-grid-bg){position:relative;z-index:1;}
+
+  /* cuñas sueltas que flotan muy despacio con el scroll — guiño puntual, no en todas las secciones */
+  .drift-wedge{
+    position:absolute;
+    width:18px;
+    transform:skewX(-20deg);
+    pointer-events:none;
+    will-change:transform;
+    opacity:0.5;
+    z-index:0;
+  }
+  .drift-wedge--services{
+    height:220px;
+    background:rgba(183,255,0,0.22);
+    right:4%;
+    top:-40px;
+  }
+  .drift-wedge--cta{
+    height:160px;
+    background:rgba(183,255,0,0.12);
+    left:8%;
+    top:20px;
+  }
+  .section-head{
+    max-width:640px;
+    margin-bottom:64px;
+  }
+  .eyebrow{
+    font-family:var(--font-display);
+    font-size:0.75rem;
+    letter-spacing:0.22em;
+    color:var(--lime);
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--lime);}
+  .section-head h2{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(1.9rem,3.6vw,2.9rem);
+    line-height:1.18;
+  }
+  .section-head p{
+    margin-top:18px;
+    color:var(--gray);
+    font-size:1.05rem;
+    max-width:52ch;
+  }
+
+  /* variante centrada — para secciones donde el titular es corto y literal (p.ej. "Qué medimos") */
+  .section-head--center{
+    max-width:640px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+  }
+  .eyebrow--center{justify-content:center;}
+  .eyebrow--bold{font-weight:700;}
+  .section-head--center h2{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(0.95rem,4.3vw,2.8rem);
+    letter-spacing:0.01em;
+    white-space:nowrap;
+  }
+
+  /* "Dos caminos, un mismo punto de partida" es una frase larga, no un titular corto:
+     usa la tipografía de titular normal (Rajdhani) en vez de forzar una sola línea en Orbitron,
+     que se desbordaba de la caja centrada en pantallas anchas. */
+  #servicios .section-head--center{
+    max-width:760px;
+  }
+  #servicios .section-head--center h2{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(1.9rem,3.6vw,2.9rem);
+    letter-spacing:normal;
+    white-space:normal;
+    line-height:1.18;
+  }
+  .section-sub{
+    margin-top:16px;
+    color:var(--gray);
+    font-size:1.05rem;
+    max-width:46ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .section-light .section-sub{color:rgba(0,0,0,0.6);}
+
+  /* ===== QUE MEDIMOS ===== */
+  .measure-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:48px;
+  }
+  .measure-card{
+    padding:0;
+    position:relative;
+  }
+  /* divisor entre columnas — línea marcada en lima fosforito, no una simple línea tenue */
+  .measure-card:not(:first-child)::before{
+    content:'';
+    position:absolute;
+    left:-24px; top:0;
+    width:2px;
+    height:100%;
+    background:linear-gradient(180deg, rgba(183,255,0,0.15), var(--lime) 20%, var(--lime) 80%, rgba(183,255,0,0.15));
+    box-shadow:0 0 8px rgba(183,255,0,0.5);
+  }
+  .measure-icon{
+    width:46px;height:46px;
+    margin-bottom:26px;
+  }
+  .measure-icon svg{width:100%;height:100%;stroke:var(--lime);}
+  .measure-card h3{
+    font-family:var(--font-display);
+    font-size:1rem;
+    letter-spacing:0.02em;
+    margin-bottom:12px;
+  }
+  .measure-card p{color:var(--gray);font-size:0.95rem;}
+
+  /* ===== VALUES — TARJETAS GIRATORIAS ===== */
+  .values-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+    position:relative;
+    z-index:1;
+  }
+  .flip-card{
+    perspective:1200px;
+    height:190px;
+    cursor:pointer;
+    outline:none;
+  }
+  .flip-inner{
+    position:relative;
+    width:100%;height:100%;
+    transform-style:preserve-3d;
+    transition:transform .6s cubic-bezier(.4,.2,.2,1);
+  }
+  .flip-card:hover .flip-inner,
+  .flip-card:focus .flip-inner,
+  .flip-card.is-flipped .flip-inner{
+    transform:rotateY(180deg);
+  }
+  .flip-face{
+    position:absolute;inset:0;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    border:1px solid var(--card-border);
+    background:var(--card);
+    padding:28px 26px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+  }
+  .flip-front{
+    position:absolute;inset:0;
+  }
+  .flip-front::before{
+    content:'';
+    position:absolute;
+    right:-30px; bottom:-14px;
+    width:180px; height:52px;
+    background-image:url('../assets/img/wedge-accent.webp');
+    background-size:contain;
+    background-repeat:no-repeat;
+    opacity:0.16;
+    pointer-events:none;
+  }
+  .flip-front h3{
+    position:relative;
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+  }
+  .flip-icon{
+    position:absolute;
+    top:16px; right:16px;
+    width:15px;height:15px;
+    color:var(--lime);
+    opacity:0.55;
+  }
+  .flip-back{
+    transform:rotateY(180deg);
+    background:#161616;
+    border-color:var(--lime);
+    box-shadow:0 0 14px rgba(183,255,0,0.35);
+  }
+  .flip-back p{color:rgba(255,255,255,0.82);font-size:0.94rem;line-height:1.5;}
+
+  /* ===== COMO FUNCIONA — ESCALERA ASCENDENTE ===== */
+  .stairs{
+    display:flex;
+    align-items:flex-end;
+    gap:0;
+    position:relative;
+  }
+  .stair-step{
+    flex:1;
+    position:relative;
+    padding:26px 22px 30px;
+    border-top:2px solid var(--lime);
+  }
+  .stair-step[data-step="1"]{margin-bottom:0;}
+  .stair-step[data-step="2"]{margin-bottom:34px;}
+  .stair-step[data-step="3"]{margin-bottom:68px;}
+  .stair-step[data-step="4"]{margin-bottom:102px;}
+  .stair-step-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-top:-11px;
+    margin-bottom:14px;
+    background:var(--black);
+    width:fit-content;
+    padding-right:8px;
+  }
+  .step-num{
+    font-family:var(--font-display);
+    font-size:0.8rem;
+    color:var(--lime);
+    letter-spacing:0.1em;
+  }
+  .stair-step h3{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:1.2rem;
+    letter-spacing:0.01em;
+  }
+  .stair-step p{color:var(--gray);font-size:0.88rem;}
+
+  /* ===== SERVICIOS ===== */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:56px;
+    max-width:1040px;
+    margin:0 auto;
+  }
+  .service-card{
+    padding:0;
+    display:flex;flex-direction:column;
+    align-items:center;
+    text-align:center;
+    min-height:280px;
+    position:relative;
+  }
+  /* divisor entre las dos columnas — misma línea marcada en lima usada en "Qué medimos" */
+  .service-card:not(:first-child)::before{
+    content:'';
+    position:absolute;
+    left:-28px; top:0;
+    width:2px;
+    height:100%;
+    background:linear-gradient(180deg, rgba(183,255,0,0.15), var(--lime) 20%, var(--lime) 80%, rgba(183,255,0,0.15));
+    box-shadow:0 0 8px rgba(183,255,0,0.5);
+  }
+  .service-tag{
+    font-family:var(--font-display);
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    color:var(--gray);
+    text-transform:uppercase;
+  }
+  .service-card h3{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:1.9rem;
+    margin:22px 0 16px;
+  }
+  .service-card p{color:var(--gray);font-size:0.95rem;max-width:36ch;margin-bottom:26px;}
+  .service-link{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--lime);
+    font-size:0.9rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    transition:gap .2s;
+  }
+  .service-link .arrow{transition:transform .2s;}
+  .service-card:hover .arrow{transform:translateX(6px);}
+
+  /* variante clara — el enlace se queda en lima intencionalmente (petición explícita); el resto del texto sigue en negro para legibilidad */
+  .section-light .service-tag{color:rgba(0,0,0,0.55);}
+  .section-light .service-card p{color:rgba(0,0,0,0.6);}
+
+  /* ===== PRUEBA SOCIAL ===== */
+  #prueba-social{position:relative;overflow:hidden;}
+  .proof{
+    position:relative;
+    z-index:1;
+    padding:100px 6%;
+    text-align:center;
+  }
+  .proof-quote{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(1.6rem,3.2vw,2.6rem);
+    max-width:34ch;
+    margin:0 auto 28px;
+    line-height:1.32;
+  }
+  .proof-quote .lime{color:var(--lime);}
+  .proof-for{
+    color:var(--gray);
+    font-size:1.1rem;
+    max-width:56ch;
+    margin:0 auto;
+  }
+  .proof-cta-heading{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:clamp(1.4rem,4.4vw,2.6rem);
+    white-space:nowrap;
+    margin:64px auto 30px;
+  }
+  .proof .btn-primary{margin-top:0;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--card-border);
+    padding:50px 6% 40px;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+    position:relative;
+    background:var(--black);
+  }
+  .footer-left{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .footer-left .logo{margin-bottom:14px;}
+  .footer-logo{height:40px;width:auto;display:block;margin-bottom:14px;}
+  .footer-tag{
+    font-family:var(--font-display);
+    font-size:0.62rem;
+    letter-spacing:0.2em;
+    color:var(--lime);
+    text-transform:uppercase;
+  }
+  .footer-links{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .footer-links a{
+    font-size:0.95rem;
+    color:var(--gray);
+    font-family:var(--font-body);
+  }
+  .footer-links a:hover{color:var(--white);}
+  .footer-social{display:flex;align-items:center;gap:18px;}
+  .footer-social a{
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gray);
+    transition:color .2s;
+  }
+  .footer-social a:hover{color:var(--lime);}
+  .footer-social svg{width:22px;height:22px;}
+
+  /* Menú móvil desplegado — header.nav-open, activado por incluir.js */
+  header.nav-open nav{
+    display:block;
+    position:absolute;
+    top:100%; left:0; right:0;
+    background:var(--near-black);
+    border-bottom:1px solid var(--card-border);
+    padding:18px 6%;
+  }
+  header.nav-open nav ul{
+    flex-direction:column;
+    gap:18px;
+    display:flex;
+  }
+  header.nav-open .nav-cta{
+    display:inline-block;
+    position:absolute;
+    top:100%; right:6%;
+    margin-top:calc(18px + 1px);
+  }
+
+  @media (max-width:820px){
+    .brand-anatomy-bg{display:none;}
+    nav ul, .nav-cta{display:none;}
+    .menu-toggle{display:block;}
+    header{position:relative;}
+    section{padding:80px 6%;}
+    footer{flex-direction:column;align-items:flex-start;}
+    .angle-bridge{height:90px;}
+    .measure-card:not(:first-child)::before{display:none;}
+    .service-card:not(:first-child)::before{display:none;}
+
+    /* escalera → lista vertical simple en móvil, sin desnivel */
+    .stairs{flex-direction:column;align-items:stretch;gap:0;}
+    .stair-step{margin-bottom:0 !important;border-top:none;border-left:2px solid var(--lime);padding:0 0 28px 22px;margin-left:2px;}
+    .stair-step:last-child{padding-bottom:0;}
+    .stair-step-head{margin-top:0;background:transparent;padding-right:0;}
+
+    /* tarjetas giratorias → un poco más altas en móvil, más fácil de leer al tocar */
+    .flip-card{height:170px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .p-layer, .hero-waveform-ambient{transition:none;}
+    [data-reveal]{transition:none;opacity:1;transform:none;}
+  }
+
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  [data-reveal].in{opacity:1;transform:translateY(0);}
+
+  /* escalera: revelado escalonado en orden 1→2→3→4, no simultáneo */
+  .stair-step[data-step="1"]{transition-delay:0s;}
+  .stair-step[data-step="2"]{transition-delay:.15s;}
+  .stair-step[data-step="3"]{transition-delay:.3s;}
+  .stair-step[data-step="4"]{transition-delay:.45s;}

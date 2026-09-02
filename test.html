@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test VO2máx / RMR — MYO Performance Lab</title>
+<meta name="description" content="Test de VO2máx y metabolismo basal (RMR) en Lleida. Informe el mismo día con tus datos reales de rendimiento. Powered by Science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/test.css">
+</head>
+<body data-page="test">
+
+<div class="brand-anatomy-bg" aria-hidden="true"></div>
+
+<div id="header"></div>
+
+<main>
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <span class="p-wedge" style="right:8%;top:-30px;width:16px;height:260px;background:rgba(183,255,0,0.22);"></span>
+  <span class="p-wedge" style="right:13%;top:60px;width:11px;height:180px;background:rgba(255,255,255,0.07);"></span>
+  <div class="hero-eyebrow">Presencial · Lleida</div>
+  <h1>Test VO2máx y RMR. <em>Tu techo real, medido.</em></h1>
+  <p class="hero-sub">Un test de esfuerzo cardiopulmonar en el laboratorio de Lleida, con los tres informes entregados el mismo día.</p>
+</section>
+
+<div class="angle-bridge to-light"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section class="section-light">
+  <div class="section-head--center" data-reveal>
+    <div class="eyebrow">El protocolo</div>
+    <h2>QUÉ ES EL TEST CPET</h2>
+    <p>Un test de esfuerzo cardiopulmonar en dos partes.</p>
+  </div>
+
+  <div class="protocol-chart" data-reveal>
+    <div class="protocol-chart__head">
+      <div class="protocol-chart__title">Curva del protocolo — en vivo</div>
+      <div class="protocol-chart__readouts">
+        <div class="protocol-chart__stat">
+          <span>Tiempo</span>
+          <strong id="pc-time">00:00</strong>
+        </div>
+        <div class="protocol-chart__stat">
+          <span>Velocidad</span>
+          <strong id="pc-speed">0.0 <em>km/h</em></strong>
+        </div>
+        <div class="protocol-chart__stat protocol-chart__phase">
+          <span>Fase</span>
+          <strong id="pc-phase">—</strong>
+        </div>
+      </div>
+    </div>
+
+    <svg viewBox="0 0 900 260" preserveAspectRatio="none" aria-hidden="true">
+      <!-- zonas de fondo -->
+      <rect class="protocol-chart__zone-warmup" x="40" y="20" width="250" height="200"></rect>
+      <rect class="protocol-chart__zone-ramp" x="290" y="20" width="500" height="200"></rect>
+
+      <!-- grid horizontal -->
+      <g class="protocol-chart__grid">
+        <line x1="40" y1="192" x2="860" y2="192"></line>
+        <line x1="40" y1="136" x2="860" y2="136"></line>
+        <line x1="40" y1="80" x2="860" y2="80"></line>
+      </g>
+
+      <!-- eje tiempo -->
+      <line class="protocol-chart__axis" x1="40" y1="220" x2="860" y2="220"></line>
+      <text class="protocol-chart__tick" x="40" y="238">0:00</text>
+      <text class="protocol-chart__tick" x="278" y="238">5:00 · fin calentamiento</text>
+      <text class="protocol-chart__tick" x="762" y="238">15:00 · agotamiento</text>
+
+      <!-- curva del protocolo: 5' calentamiento plano + incrementos de 0,5km/h cada minuto -->
+      <path id="pc-path" class="protocol-chart__path"
+        d="M40,192 L290,192 L290,178 L340,178 L340,164 L390,164 L390,150 L440,150 L440,136
+           L490,136 L490,122 L540,122 L540,108 L590,108 L590,94 L640,94 L640,80
+           L690,80 L690,66 L740,66 L740,52 L790,52"></path>
+
+      <circle id="pc-dot" class="protocol-chart__dot" r="5" cx="40" cy="192"></circle>
+
+      <circle id="pc-peak" class="protocol-chart__peak" r="7" cx="790" cy="52"></circle>
+      <text id="pc-peak-label" class="protocol-chart__peak-label" x="740" y="38">TU TECHO REAL</text>
+    </svg>
+
+    <p class="protocol-chart__caption">Protocolo ilustrativo — tu curva real se mide el día del test.</p>
+  </div>
+
+  <div class="cpet-grid">
+    <div class="cpet-item" data-reveal>
+      <div class="meta">10-15 min</div>
+      <h3>RMR</h3>
+      <p>En reposo, con mascarilla y un cuestionario de actividad física, calculamos tu metabolismo basal y las calorías diarias que realmente necesitas.</p>
+    </div>
+    <div class="cpet-item" data-reveal>
+      <div class="meta">13-20 min</div>
+      <h3>VO2 MÁX</h3>
+      <p>Test incremental: 5 min de calentamiento a ritmo trote, luego incrementos de 0,5 km/h cada minuto hasta el agotamiento. Así medimos tu techo real de rendimiento.</p>
+    </div>
+  </div>
+  <p class="cpet-close" data-reveal>Nada de estimaciones. Datos de laboratorio, sacados de tu cuerpo, no de una tabla genérica.</p>
+</section>
+
+<div class="angle-bridge to-dark"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section id="que-llevas">
+  <div class="llevas-grid">
+    <div data-reveal>
+      <div class="eyebrow">Entregables</div>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);">QUÉ TE LLEVAS EL MISMO DÍA</div>
+      <p style="color:var(--gray);margin-top:16px;font-size:1rem;">Tres informes, entregados el mismo día del test.</p>
+      <div class="report-row">
+        <div class="report-item">
+          <span class="num">01</span>
+          <div><h4>INFORME RMR</h4><p>Tu metabolismo basal y kcal diarias recomendadas.</p></div>
+        </div>
+        <div class="report-item">
+          <span class="num">02</span>
+          <div><h4>INFORME VO2MÁX</h4><p>Tu capacidad aeróbica máxima.</p></div>
+        </div>
+        <div class="report-item">
+          <span class="num">03</span>
+          <div><h4>INFORME DE INTERPRETACIÓN</h4><p>Puntos fuertes, débiles y prioridades de entrenamiento, sin jerga.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="media-placeholder" data-reveal>
+      <span>VIDEO CLIP DE RUNNER CORRIENDO HACIENDO EL TEST<br>(pendiente material real)</span>
+    </div>
+  </div>
+</section>
+
+<section id="para-quien">
+  <div style="border-top:1px solid var(--card-border);padding-top:64px;text-align:center;">
+    <div class="eyebrow" style="justify-content:center;">Para quién es</div>
+    <div class="chips" data-reveal>
+      <span class="chip is-highlight">Corredores</span>
+      <span class="chip is-highlight">Ciclistas</span>
+      <span class="chip is-highlight">Triatletas</span>
+      <span class="chip is-highlight">Hyrox / DEKA</span>
+    </div>
+    <p class="para-quien-close" data-reveal><span class="tw-target" data-full="Si compites o entrenas en serio y quieres dejar de adivinar tus zonas de entrenamiento, este test es para ti."></span><span class="tw-cursor"></span></p>
+  </div>
+</section>
+
+<section id="proceso" style="background:var(--near-black);">
+  <div class="section-head--center" data-reveal>
+    <div class="eyebrow">Proceso</div>
+    <h2 style="font-family:var(--font-head);">Cuatro pasos, de la llamada al informe</h2>
+  </div>
+  <div class="track">
+    <div class="track-line"></div>
+    <div class="track-step" data-reveal>
+      <div class="track-node">01</div>
+      <h3>Diagnóstico inicial (gratis)</h3>
+      <p>30 minutos por videollamada o teléfono.</p>
+    </div>
+    <div class="track-step" data-reveal>
+      <div class="track-node">02</div>
+      <h3>Test en laboratorio</h3>
+      <p>Sesión presencial en Lleida — RMR + VO2máx.</p>
+    </div>
+    <div class="track-step" data-reveal>
+      <div class="track-node">03</div>
+      <h3>Entrega de tus 3 informes</h3>
+      <p>Ese mismo día, sin esperas.</p>
+    </div>
+    <div class="track-step" data-reveal>
+      <div class="track-node">04</div>
+      <h3>(Opcional) Programación</h3>
+      <p>Pasas a programación con tus datos ya listos.</p>
+    </div>
+  </div>
+</section>
+
+<div class="angle-bridge to-light"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section id="faq" class="section-light">
+  <div class="faq-block">
+    <div data-reveal>
+      <div class="eyebrow">FAQ</div>
+      <h2 style="font-family:var(--font-head);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:14px;">Antes de venir</h2>
+      <p style="color:rgba(0,0,0,0.6);font-size:0.95rem;">Si te queda alguna duda, la resolvemos en la llamada de diagnóstico.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" data-reveal>
+        <button class="faq-q"><span>¿Cuánto dura la sesión completa?</span><span class="faq-sign">+</span></button>
+        <div class="faq-a"><p>Cuenta con 1 hora en total. Los tests en sí son 10-15 min de RMR en reposo y 13-20 min de test incremental de VO2máx, pero con la preparación, la explicación de la prueba y la conversación sobre tus resultados al terminar, la sesión completa ronda los 60 minutos.</p></div>
+      </div>
+      <div class="faq-item" data-reveal>
+        <button class="faq-q"><span>¿Qué me llevo al terminar?</span><span class="faq-sign">+</span></button>
+        <div class="faq-a"><p>Al salir del laboratorio ya conoces tu VO2máx, tus zonas de entrenamiento y tu RMR con la ingesta calórica recomendada — te lo explicamos en el momento. Los 3 informes en PDF (RMR, VO2máx e interpretación) los recibes por email ese mismo día.</p></div>
+      </div>
+      <div class="faq-item" data-reveal>
+        <button class="faq-q"><span>¿Necesito experiencia previa entrenando?</span><span class="faq-sign">+</span></button>
+        <div class="faq-a"><p>No. El test se adapta a tu nivel actual — es igual de útil si empiezas ahora que si ya compites.</p></div>
+      </div>
+      <div class="faq-item" data-reveal>
+        <button class="faq-q"><span>¿Tengo que ir en ayunas?</span><span class="faq-sign">+</span></button>
+        <div class="faq-a"><p>Sí, es imprescindible venir en ayunas para que la medición del RMR sea precisa.</p></div>
+      </div>
+      <div class="faq-item" data-reveal>
+        <button class="faq-q"><span>¿Qué ropa debo llevar?</span><span class="faq-sign">+</span></button>
+        <div class="faq-a"><p>Ropa de deporte y zapatillas de correr.</p></div>
+      </div>
+      <div class="faq-item" data-reveal>
+        <button class="faq-q"><span>¿Dónde se realiza el test?</span><span class="faq-sign">+</span></button>
+        <div class="faq-a"><p>En el laboratorio de MYO Performance Lab, en Lleida. La dirección exacta se confirma al reservar tu llamada.</p></div>
+      </div>
+      <div class="faq-item" data-reveal>
+        <button class="faq-q"><span>¿Necesito hacerme el test para acceder a la programación online?</span><span class="faq-sign">+</span></button>
+        <div class="faq-a"><p>Sí. Si estás cerca de Lleida te lo hacemos nosotros; si no, puedes hacerlo en otro centro. Es un requisito para que la programación se base en datos reales desde el primer día — sin el test no se puede acceder a la programación online.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="angle-bridge to-dark"><div class="wedge-a"></div><div class="wedge-b"></div></div>
+
+<section id="reserva">
+  <div class="cta-close" id="cta-close" data-reveal>
+    <div class="hero-bg-grid"></div>
+    <div class="parallax-field" id="cta-parallax-field">
+      <div class="p-layer back">
+        <span class="p-wedge" style="height:70px;left:6%;top:14%;"></span>
+        <span class="p-wedge" style="height:50px;left:11%;top:20%;"></span>
+        <span class="p-wedge" style="height:90px;left:90%;top:58%;"></span>
+        <span class="p-wedge" style="height:40px;left:5%;top:78%;"></span>
+      </div>
+      <div class="p-layer mid">
+        <span class="p-wedge" style="height:110px;left:82%;top:10%;"></span>
+        <span class="p-wedge" style="height:70px;left:87%;top:16%;"></span>
+        <span class="p-wedge" style="height:60px;left:3%;top:60%;"></span>
+        <span class="p-wedge" style="height:90px;left:70%;top:80%;"></span>
+      </div>
+      <div class="p-layer front">
+        <span class="p-wedge" style="height:150px;left:93%;top:2%;"></span>
+        <span class="p-wedge" style="height:100px;left:0%;top:40%;"></span>
+        <span class="p-wedge" style="height:80px;left:96%;top:70%;"></span>
+      </div>
+    </div>
+    <div class="cta-close-content">
+      <div class="eyebrow">Powered by Science</div>
+      <h2>Es hora de entrenar con datos reales</h2>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary">Reserva tu llamada →</a>
+        <a href="https://wa.me/34648884513" class="btn-secondary">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="footer"></div>
+
+<script src="js/incluir.js" defer></script>
+<script src="js/script.js" defer></script>
+<script src="js/test.js" defer></script>
+</body>
+</html>
