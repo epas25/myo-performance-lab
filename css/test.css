@@ -215,14 +215,12 @@
     max-width:42ch;margin:0 auto;text-align:center;
     font-family:var(--font-head);font-weight:700;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.35;
   }
-  /* efecto máquina de escribir genérico — mismo mecanismo que Inicio, cursor hereda el color del texto donde se use */
   .tw-cursor{
     display:inline-block;width:3px;height:0.85em;background:currentColor;
     margin-left:3px;vertical-align:-0.06em;animation:tw-blink 0.9s step-end infinite;
   }
   @keyframes tw-blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
 
-  /* recorrido horizontal con nodos conectados — distinto de la escalera de Inicio */
   .track{
     position:relative;
     display:grid;
@@ -272,8 +270,6 @@
   .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
   .faq-a p{color:var(--gray);font-size:0.92rem;padding:0 24px 22px;text-align:center;}
 
-  /* variante clara — mismo criterio del resto de la web: lima solo en la flecha, texto pasa a negro */
-  /* variante clara — sin cajas rellenas (poco contraste sobre blanco): lista con líneas finas, como el resto de la web */
   .section-light .faq-list{border-top:1px solid rgba(0,0,0,0.14);gap:0;}
   .section-light .faq-item{background:transparent;border:none;border-bottom:1px solid rgba(0,0,0,0.14);}
   .section-light .faq-q{color:var(--black);}
@@ -337,4 +333,13 @@
     .track-line{top:0;left:23px;right:auto;bottom:0;width:1px;height:auto;}
     .faq-block{grid-template-columns:1fr;gap:28px;}
     .angle-bridge{height:90px;}
+
+    .section-head--center h2{
+      white-space:normal;
+      font-size:clamp(1.4rem, 6vw, 2.1rem);
+    }
+    .menu-toggle{
+      padding:10px;
+      line-height:1;
+    }
   }
