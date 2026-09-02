@@ -66,7 +66,7 @@
   .hero-eyebrow::before{content:'';width:34px;height:1px;background:var(--lime);}
   .hero h1{
     font-family:var(--font-head);font-weight:700;
-    font-size:clamp(2.6rem, 6.6vw, 5.8rem);line-height:1.06;letter-spacing:-0.01em;max-width:16ch;
+    font-size:clamp(2.4rem, 5.2vw, 4.6rem);line-height:1.08;letter-spacing:-0.01em;max-width:16ch;
     position:relative;z-index:2;
   }
   .hero h1 em{font-style:normal;color:var(--lime);}
