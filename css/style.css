@@ -686,6 +686,26 @@
   }
   .proof .btn-primary{margin-top:0;}
 
+  /* ===== SÍGUENOS ===== */
+  .social-follow{
+    text-align:center;
+    padding:100px 6%;
+  }
+  .social-handle{
+    font-family:ui-monospace, Menlo, monospace;
+    font-size:0.9rem;
+    color:var(--lime);
+    letter-spacing:0.03em;
+    margin-top:14px;
+  }
+  .social-links{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin-top:28px;
+  }
+
   /* ===== FOOTER ===== */
   footer{
     border-top:1px solid var(--card-border);
