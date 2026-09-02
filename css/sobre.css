@@ -174,7 +174,8 @@
     nav ul,.nav-cta{display:none;}
     .menu-toggle{display:block;}
     section{padding:80px 6%;}
-    footer{flex-direction:column;align-items:flex-start;}
+    footer{flex-direction:column;align-items:center;text-align:center;gap:28px;}
+    .footer-links{flex-direction:column;gap:18px;}
     .founder-grid{grid-template-columns:1fr;}
     .angle-bridge{height:90px;}
 
@@ -185,5 +186,23 @@
     .menu-toggle{
       padding:10px;
       line-height:1;
+    }
+
+    /* Imagen 2 — quitar el hueco vertical gigante del hero en móvil */
+    .hero{
+      min-height:auto;
+      justify-content:flex-start;
+    }
+
+    /* Imagen 1 — evitar que la flecha del CTA se quede sola en una línea */
+    .btn-primary, .btn-secondary{
+      white-space:nowrap;
+    }
+  }
+
+  @media (max-width:400px){
+    .btn-primary, .btn-secondary{
+      font-size:0.82rem;
+      padding:15px 22px;
     }
   }
