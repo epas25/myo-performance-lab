@@ -177,4 +177,13 @@
     footer{flex-direction:column;align-items:flex-start;}
     .founder-grid{grid-template-columns:1fr;}
     .angle-bridge{height:90px;}
+
+    .section-head--center h2{
+      white-space:normal;
+      font-size:clamp(1.4rem, 6vw, 2.1rem);
+    }
+    .menu-toggle{
+      padding:10px;
+      line-height:1;
+    }
   }
