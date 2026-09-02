@@ -355,18 +355,9 @@
       white-space:nowrap;
     }
 
-    /* Imagen 5 — la curva del protocolo ocupa todo el ancho en móvil, sin márgenes sobrantes */
+    /* La curva del protocolo se oculta en móvil, se mantiene solo en desktop */
     .protocol-chart{
-      margin-left:-6%;
-      margin-right:-6%;
-      max-width:none;
-      padding:22px 16px 18px;
-    }
-    .protocol-chart__title{
-      font-size:0.6rem;
-    }
-    .protocol-chart__stat strong{
-      font-size:clamp(0.95rem, 5vw, 1.2rem);
+      display:none;
     }
   }
 
