@@ -221,4 +221,13 @@
     .process-dot{margin:0;flex-shrink:0;}
     .process-step p{max-width:none;margin:0;}
     .angle-bridge{height:90px;}
+
+    .section-head--center h2{
+      white-space:normal;
+      font-size:clamp(1.4rem, 6vw, 2.1rem);
+    }
+    .menu-toggle{
+      padding:10px;
+      line-height:1;
+    }
   }
