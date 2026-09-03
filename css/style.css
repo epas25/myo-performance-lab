@@ -706,6 +706,13 @@
     margin-top:28px;
   }
 
+  /* estas dos secciones ya llevan su propio padding en .proof/.social-follow —
+     sin esto, se sumaba el padding genérico de "section" y quedaba un hueco doble */
+  #prueba-social,
+  #social{
+    padding:0;
+  }
+
   /* ===== FOOTER ===== */
   footer{
     border-top:1px solid var(--card-border);
