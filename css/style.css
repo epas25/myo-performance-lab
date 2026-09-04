@@ -793,8 +793,15 @@
     .brand-anatomy-bg{display:none;}
     nav ul, .nav-cta{display:none;}
     .menu-toggle{display:block;}
-    header{position:relative;}
     section{padding:80px 6%;}
+
+    /* El header ya usa position:fixed en desktop (arriba del todo del archivo).
+       Antes se "desanclaba" a position:relative en mobile, lo que sumaba su
+       propia altura al padding-top del hero (pensado para un header fijo) y
+       generaba el hueco extra en Inicio/Programación frente a Test, que sí
+       se queda fijo. Se quita para que el comportamiento sea el mismo en
+       todas las páginas. */
+
     footer{padding:28px 6% 20px;gap:14px;}
     .footer-logo{display:none;}
     .footer-top{flex-direction:column;align-items:center;text-align:center;gap:10px;}
