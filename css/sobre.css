@@ -152,8 +152,11 @@
   }
 
   /* ===== EL MITO — versión compacta (solo título, sin cuerpo de texto) ===== */
-  .mito-compact{
-    padding:40px 6% 46px;
+    .mito-compact{
+    padding:60px 6%;
+  }
+  .mito-compact .section-head--center{
+    margin-bottom:0;
   }
   .bridge-thin{
     height:70px;
