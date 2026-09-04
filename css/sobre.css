@@ -151,6 +151,14 @@
     color:rgba(0,0,0,0.5);
   }
 
+  /* ===== EL MITO — versión compacta (solo título, sin cuerpo de texto) ===== */
+  .mito-compact{
+    padding:40px 6% 46px;
+  }
+  .bridge-thin{
+    height:70px;
+  }
+
   [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
   [data-reveal].in{opacity:1;transform:translateY(0);}
 
