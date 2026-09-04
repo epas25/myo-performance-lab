@@ -191,6 +191,16 @@
     .btn-primary, .btn-secondary{
       white-space:nowrap;
     }
+
+    /* Imagen 1 (nueva) — se quita "El mito" solo en mobile. Se oculta también
+       .bridge-thin (los dos separadores diagonales que la rodean) porque las
+       secciones de antes y de después ya son las dos oscuras — sin la cuña
+       en medio quedan pegadas sin salto de color, así que no hace falta
+       ningún separador ahí. */
+    .mito-compact,
+    .bridge-thin{
+      display:none;
+    }
   }
 
   @media (max-width:400px){
