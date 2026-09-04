@@ -341,6 +341,12 @@
     .protocol-chart{
       display:none;
     }
+
+    /* Imagen 3 — .cta-close tenía su propio padding:110px, que se sumaba a los
+       80px del "section" genérico ya reducido arriba. Se reduce solo en móvil. */
+    .cta-close{
+      padding:56px 6%;
+    }
   }
 
   @media (max-width:400px){
