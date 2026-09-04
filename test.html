@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/test.css">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body data-page="test">
 
@@ -56,24 +57,20 @@
     </div>
 
     <svg viewBox="0 0 900 260" preserveAspectRatio="none" aria-hidden="true">
-      <!-- zonas de fondo -->
       <rect class="protocol-chart__zone-warmup" x="40" y="20" width="250" height="200"></rect>
       <rect class="protocol-chart__zone-ramp" x="290" y="20" width="500" height="200"></rect>
 
-      <!-- grid horizontal -->
       <g class="protocol-chart__grid">
         <line x1="40" y1="192" x2="860" y2="192"></line>
         <line x1="40" y1="136" x2="860" y2="136"></line>
         <line x1="40" y1="80" x2="860" y2="80"></line>
       </g>
 
-      <!-- eje tiempo -->
       <line class="protocol-chart__axis" x1="40" y1="220" x2="860" y2="220"></line>
       <text class="protocol-chart__tick" x="40" y="238">0:00</text>
       <text class="protocol-chart__tick" x="278" y="238">5:00 · fin calentamiento</text>
       <text class="protocol-chart__tick" x="762" y="238">15:00 · agotamiento</text>
 
-      <!-- curva del protocolo: 5' calentamiento plano + incrementos de 0,5km/h cada minuto -->
       <path id="pc-path" class="protocol-chart__path"
         d="M40,192 L290,192 L290,178 L340,178 L340,164 L390,164 L390,150 L440,150 L440,136
            L490,136 L490,122 L540,122 L540,108 L590,108 L590,94 L640,94 L640,80
@@ -245,7 +242,7 @@
       <div class="eyebrow">Powered by Science</div>
       <h2>Es hora de entrenar con datos reales</h2>
       <div class="cta-buttons">
-        <a href="#" class="btn-primary">Reserva tu llamada →</a>
+        <a href="https://calendly.com/myo-performance-lab-coach/30min" class="btn-primary" data-cta="calendly">Reserva tu llamada →</a>
         <a href="https://wa.me/34648884513" class="btn-secondary">Escríbenos por WhatsApp</a>
       </div>
     </div>
@@ -259,5 +256,6 @@
 <script src="js/incluir.js" defer></script>
 <script src="js/script.js" defer></script>
 <script src="js/test.js" defer></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" defer></script>
 </body>
 </html>
