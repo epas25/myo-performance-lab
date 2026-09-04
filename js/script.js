@@ -169,18 +169,15 @@ document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(
 })();
 
 // Calendly popup — botones "Reserva tu llamada" en TODAS las páginas (header + CTAs propios de cada página).
-// Se apoya en [data-cta="calendly"], no en clases de diseño, para no depender de cómo cambien los estilos.
+// Delegación de eventos en document en vez de enganchar listeners uno a uno: el botón del header
+// se inyecta de forma asíncrona vía incluir.js y puede no existir todavía cuando este script corre.
+// Con delegación no importa cuándo aparezca el botón en el DOM, siempre se captura el clic.
 // Si el script de Calendly aún no ha cargado, el href normal del botón sirve de fallback y abre calendly.com directamente.
-(function () {
-  const calendlyBtns = document.querySelectorAll('[data-cta="calendly"]');
-  if (!calendlyBtns.length) return;
-
-  calendlyBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      if (typeof Calendly !== 'undefined') {
-        e.preventDefault();
-        Calendly.initPopupWidget({ url: 'https://calendly.com/myo-performance-lab-coach/30min' });
-      }
-    });
-  });
-})();
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-cta="calendly"]');
+  if (!btn) return;
+  if (typeof Calendly !== 'undefined') {
+    e.preventDefault();
+    Calendly.initPopupWidget({ url: 'https://calendly.com/myo-performance-lab-coach/30min' });
+  }
+});
