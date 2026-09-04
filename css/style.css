@@ -802,6 +802,11 @@
        se queda fijo. Se quita para que el comportamiento sea el mismo en
        todas las páginas. */
 
+    /* Síguenos — se oculta solo en mobile y solo en Inicio (Sobre la sigue mostrando) */
+    body[data-page="inicio"] #social{
+      display:none;
+    }
+
     footer{padding:28px 6% 20px;gap:14px;}
     .footer-logo{display:none;}
     .footer-top{flex-direction:column;align-items:center;text-align:center;gap:10px;}
