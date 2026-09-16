@@ -111,6 +111,11 @@
   background-color: var(--lime);
 }
 
+/* Hide navigation buttons */
+.carousel-nav {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .carousel-nav {
