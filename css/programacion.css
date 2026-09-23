@@ -252,12 +252,12 @@
 
   /* ===== CAROUSEL PROGRAMACIÓN ===== */
   .section-description-carousel{
-    display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:3rem;
+    display:flex;justify-content:space-between;align-items:center;gap:60px;margin-bottom:3rem;
   }
   .section-description-carousel > p{
-    flex:0 1 auto;max-width:300px;text-align:left;font-size:1rem;line-height:1.6;
+    flex:0 1 45%;max-width:350px;text-align:left;font-size:1rem;line-height:1.6;
   }
-  .carousel-container{width:200px;aspect-ratio:3 / 2;flex-shrink:0;}
+  .carousel-container{width:320px;aspect-ratio:3 / 2;flex-shrink:0;}
   .carousel-wrapper{position:relative;width:100%;height:100%;overflow:hidden;border-radius:4px;}
   .carousel-track{display:flex;transition:transform 0.5s ease-in-out;height:100%;}
   .carousel-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f0f0f0;}
@@ -268,6 +268,6 @@
 
   @media (max-width:768px){
     .section-description-carousel{flex-direction:column;gap:24px;}
-    .section-description-carousel > p{max-width:100%;text-align:center;}
-    .carousel-container{width:100%;max-width:250px;}
+    .section-description-carousel > p{flex:1;max-width:100%;text-align:center;}
+    .carousel-container{width:280px;margin:0 auto;}
   }
