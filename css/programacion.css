@@ -257,9 +257,9 @@
   #que-incluye .section-head{
     max-width:none;
     display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,460px);
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
     grid-template-rows:1fr auto 1fr;
-    column-gap:64px;
+    column-gap:clamp(40px,5vw,72px);
     margin-bottom:72px;
   }
   #que-incluye .section-head > .eyebrow{grid-column:1;grid-row:1;align-self:end;}
@@ -267,7 +267,7 @@
   .section-description-carousel{display:contents;}
   #que-incluye .section-description-carousel > p{
     grid-column:1;grid-row:3;align-self:start;
-    margin-left:0;margin-right:0;max-width:46ch;
+    margin-left:0;margin-right:0;max-width:54ch;
     text-align:left;font-size:1rem;line-height:1.6;
   }
   .carousel-container{
