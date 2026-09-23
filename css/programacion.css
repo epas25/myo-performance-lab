@@ -252,12 +252,12 @@
 
   /* ===== CAROUSEL PROGRAMACIÓN ===== */
   .section-description-carousel{
-    display:block;margin-bottom:3rem;overflow:auto;
+    display:block;margin-bottom:5rem;
   }
   .section-description-carousel > p{
-    text-align:left;font-size:1rem;line-height:1.6;
+    text-align:left;font-size:1rem;line-height:1.6;max-width:400px;
   }
-  .carousel-container{float:right;width:380px;aspect-ratio:3 / 2;margin-left:40px;margin-bottom:20px;}
+  .carousel-container{float:right;width:280px;aspect-ratio:3 / 2;margin-left:30px;clear:right;}
   .carousel-wrapper{position:relative;width:100%;height:100%;overflow:hidden;border-radius:4px;}
   .carousel-track{display:flex;transition:transform 0.5s ease-in-out;height:100%;}
   .carousel-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f0f0f0;}
