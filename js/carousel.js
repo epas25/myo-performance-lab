@@ -1,5 +1,5 @@
 // MYO Performance Lab — Carousel Controller
-// Autoplay cada 5 segundos, navegación manual, dots interactivos
+// Autoplay cada 3 segundos, navegación manual, dots interactivos
 
 (function() {
   const carouselTrack = document.getElementById('carouselTrack');
@@ -62,7 +62,7 @@
   function startAutoplay() {
     autoplayInterval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 3000);
   }
 
   function resetAutoplay() {
@@ -98,5 +98,5 @@
   startAutoplay();
 
   // Log de inicialización (opcional)
-  console.log('✓ Carousel MYO initialized — 6 slides, autoplay 5s');
+  console.log('✓ Carousel MYO initialized — 6 slides, autoplay 3s');
 })();
