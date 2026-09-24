@@ -151,13 +151,45 @@
     color:rgba(0,0,0,0.5);
   }
 
-  /* ===== EL MITO — versión compacta (solo título, sin cuerpo de texto) ===== */
-    .mito-compact{
-    padding:60px 6%;
+  /* ===== NUESTRA FORMA DE TRABAJAR (antes "El mito") — título + tríptico de fotos ===== */
+  .mito-compact{
+    padding:70px 6% 90px;
   }
   .mito-compact .section-head--center{
     margin-bottom:0;
   }
+  .metodo-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;
+    max-width:1100px;margin:52px auto 0;
+  }
+  .metodo-card{
+    position:relative;margin:0;aspect-ratio:6 / 7;
+    border-radius:10px;overflow:hidden;background:#000;
+    box-shadow:0 18px 40px rgba(0,0,0,0.14);
+  }
+  .metodo-card img{
+    width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;
+    transition:transform .8s ease;
+  }
+  .metodo-card:hover img{transform:scale(1.04);}
+  .metodo-card::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,0.85) 100%);
+  }
+  .metodo-num{
+    position:absolute;top:20px;left:24px;z-index:1;
+    font-family:var(--font-display);font-weight:700;font-size:0.75rem;letter-spacing:0.18em;color:#fff;
+  }
+  .metodo-num::after{content:'';display:block;width:22px;height:1px;background:#fff;margin-top:8px;}
+  .metodo-word{
+    position:absolute;left:24px;right:24px;bottom:24px;z-index:1;
+    font-family:var(--font-display);font-weight:700;font-size:clamp(1rem,1.6vw,1.35rem);
+    letter-spacing:0.04em;color:#fff;
+  }
+  .metodo-word::before{content:'';display:block;width:30px;height:3px;background:var(--lime);margin-bottom:12px;}
+  /* entrada escalonada al hacer scroll */
+  .metodo-card[data-reveal]:nth-child(2){transition-delay:.12s;}
+  .metodo-card[data-reveal]:nth-child(3){transition-delay:.24s;}
   .bridge-thin{
     height:70px;
   }
@@ -192,15 +224,12 @@
       white-space:nowrap;
     }
 
-    /* Imagen 1 (nueva) — se quita "El mito" solo en mobile. Se oculta también
-       .bridge-thin (los dos separadores diagonales que la rodean) porque las
-       secciones de antes y de después ya son las dos oscuras — sin la cuña
-       en medio quedan pegadas sin salto de color, así que no hace falta
-       ningún separador ahí. */
-    .mito-compact,
-    .bridge-thin{
-      display:none;
-    }
+    /* "Nuestra forma de trabajar" vuelve a mostrarse en móvil: fotos apiladas en horizontal */
+    .mito-compact{padding:60px 6% 70px;}
+    .metodo-grid{grid-template-columns:1fr;gap:18px;margin-top:36px;}
+    .metodo-card{aspect-ratio:4 / 3;}
+    .metodo-card[data-reveal]:nth-child(2),
+    .metodo-card[data-reveal]:nth-child(3){transition-delay:0s;}
   }
 
   @media (max-width:400px){
