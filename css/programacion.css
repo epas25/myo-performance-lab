@@ -257,7 +257,7 @@
   .section-description-carousel > p{
     text-align:left;font-size:1rem;line-height:1.6;max-width:400px;margin-bottom:0;
   }
-  .carousel-container{float:right;width:340px;aspect-ratio:3 / 2;margin-left:30px;margin-bottom:20px;}
+  .carousel-container{float:right;width:420px;aspect-ratio:3 / 2;margin-left:30px;margin-bottom:20px;}
   .carousel-wrapper{position:relative;width:100%;height:100%;overflow:hidden;border-radius:4px;}
   .carousel-track{display:flex;transition:transform 0.5s ease-in-out;height:100%;}
   .carousel-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f0f0f0;}
