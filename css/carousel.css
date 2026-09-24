@@ -2,15 +2,15 @@
 
 .carousel-container {
   width: 100%;
-  max-width: 360px;       /* misma altura aprox. que el bloque de texto (título + 3 informes) */
+  max-width: 500px;       /* más grande: ocupa la columna derecha hasta el borde del contenido */
   justify-self: end;      /* pegado al borde derecho, alineado con el contenido */
 }
 
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;    /* antes 9/16: demasiado alto */
-  max-height: 70vh;       /* nunca más alto que la pantalla: no se corta al hacer scroll */
+  aspect-ratio: 3 / 4;    /* vertical, algo más alto que el bloque de texto */
+  max-height: 82vh;       /* nunca más alto que la pantalla: no se corta al hacer scroll */
   overflow: hidden;
   border-radius: 10px;    /* igual que el carrusel de Programación */
   background-color: var(--black);
