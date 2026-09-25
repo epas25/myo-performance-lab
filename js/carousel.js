@@ -93,6 +93,29 @@
     });
   }
 
+  // Deslizar con el dedo (móvil/tablet): izquierda = siguiente, derecha = anterior.
+  // touch-action:pan-y deja que el scroll vertical de la página siga funcionando.
+  if (wrapper) {
+    let startX = 0, startY = 0, tracking = false;
+    wrapper.style.touchAction = 'pan-y';
+    wrapper.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      tracking = true;
+      clearInterval(autoplayInterval);
+    }, { passive: true });
+    wrapper.addEventListener('touchend', (e) => {
+      if (!tracking) return;
+      tracking = false;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) nextSlide(); else prevSlide();
+      }
+      resetAutoplay();
+    }, { passive: true });
+  }
+
   // Inicializar
   createDots();
   startAutoplay();
