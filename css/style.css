@@ -504,10 +504,15 @@
     transform-style:preserve-3d;
     transition:transform .6s cubic-bezier(.4,.2,.2,1);
   }
-  .flip-card:hover .flip-inner,
-  .flip-card:focus .flip-inner,
+  /* Gira con: toque/clic (clase .is-flipped, se vuelve a girar al tocar otra vez),
+     teclado (:focus-visible) y hover solo en dispositivos con ratón.
+     Antes :focus y :hover se quedaban "enganchados" en móvil tras tocar y la tarjeta no volvía. */
+  .flip-card:focus-visible .flip-inner,
   .flip-card.is-flipped .flip-inner{
     transform:rotateY(180deg);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .flip-card:hover .flip-inner{transform:rotateY(180deg);}
   }
   .flip-face{
     position:absolute;inset:0;
