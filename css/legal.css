@@ -1,0 +1,169 @@
+/* legal.css — estilos SOLO para aviso-legal.html y privacidad.html
+   (body[data-page="legal"]). No modifica nada de style.css. */
+
+body[data-page="legal"] .hero{
+  min-height:auto;
+  padding:170px 6% 60px;
+}
+body[data-page="legal"] .hero h1{
+  font-size:clamp(2.2rem, 5vw, 3.6rem);
+}
+body[data-page="legal"] .hero-sub{
+  max-width:720px;
+}
+
+.legal{
+  padding:40px 6% 120px;
+  position:relative;
+}
+.legal-wrap{
+  max-width:860px;
+  margin:0 auto;
+  font-family:var(--font-body);
+  color:rgba(255,255,255,0.82);
+  line-height:1.75;
+  font-size:1rem;
+}
+.legal-updated{
+  font-family:var(--font-display);
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:48px;
+}
+
+/* Índice */
+.legal-toc{
+  border:1px solid var(--card-border);
+  background:var(--card);
+  padding:28px 32px;
+  margin-bottom:64px;
+}
+.legal-wrap .legal-toc h2{
+  border-top:none;
+  padding-top:0;
+  font-family:var(--font-display);
+  font-size:0.8rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--lime);
+  margin:0 0 16px;
+}
+.legal-toc ol{margin:0;padding-left:20px;columns:2;column-gap:40px;}
+.legal-toc li{margin-bottom:6px;break-inside:avoid;}
+.legal-toc a{color:rgba(255,255,255,0.82);text-decoration:none;}
+.legal-toc a:hover{color:var(--lime);}
+
+/* Secciones */
+.legal-wrap h2{
+  font-family:var(--font-head);
+  font-weight:700;
+  font-size:1.9rem;
+  line-height:1.2;
+  color:var(--white);
+  margin:64px 0 18px;
+  padding-top:24px;
+  border-top:1px solid var(--card-border);
+  scroll-margin-top:110px;
+}
+.legal-wrap h2 .num{
+  font-family:var(--font-display);
+  font-size:0.95rem;
+  color:var(--lime);
+  margin-right:12px;
+  letter-spacing:0.1em;
+}
+.legal-wrap h3{
+  font-family:var(--font-head);
+  font-weight:600;
+  font-size:1.3rem;
+  color:var(--white);
+  margin:36px 0 12px;
+}
+.legal-wrap p{margin:0 0 16px;}
+.legal-wrap ul{margin:0 0 18px;padding-left:22px;}
+.legal-wrap li{margin-bottom:8px;}
+.legal-wrap strong{color:var(--white);}
+.legal-wrap a{color:var(--white);text-decoration:underline;text-decoration-color:var(--lime);text-underline-offset:3px;}
+.legal-wrap a:hover{color:var(--lime);}
+
+/* Bloque destacado (datos del test, aviso salud) */
+.legal-callout{
+  border-left:3px solid var(--lime);
+  background:var(--card);
+  padding:20px 24px;
+  margin:24px 0;
+}
+.legal-callout p:last-child{margin-bottom:0;}
+
+/* Tablas */
+.legal-table-wrap{overflow-x:auto;margin:20px 0 28px;}
+.legal-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.92rem;
+  min-width:620px;
+}
+.legal-table th,
+.legal-table td{
+  text-align:left;
+  vertical-align:top;
+  padding:12px 14px;
+  border:1px solid var(--card-border);
+}
+.legal-table th{
+  font-family:var(--font-display);
+  font-size:0.7rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gray);
+  background:var(--near-black);
+  font-weight:500;
+}
+.legal-table td:first-child{color:var(--white);font-weight:600;}
+
+/* Datos de identificación (aviso legal) */
+.legal-id{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  border:1px solid var(--card-border);
+  margin:20px 0 28px;
+}
+.legal-id dt,
+.legal-id dd{
+  margin:0;
+  padding:12px 16px;
+  border-bottom:1px solid var(--card-border);
+}
+.legal-id dt{
+  font-family:var(--font-display);
+  font-size:0.7rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gray);
+  background:var(--near-black);
+}
+.legal-id dt:last-of-type,
+.legal-id dd:last-of-type{border-bottom:none;}
+
+/* HUECOS PENDIENTES — visibles a propósito hasta rellenarlos.
+   Buscar "hueco" en el HTML para localizarlos todos. */
+mark.hueco{
+  background:var(--lime);
+  color:var(--black);
+  font-weight:600;
+  padding:1px 6px;
+  font-family:var(--font-body);
+}
+
+@media (max-width:820px){
+  body[data-page="legal"] .hero{padding:120px 6% 32px;}
+  .legal{padding:24px 6% 80px;}
+  .legal-toc{padding:22px 20px;margin-bottom:44px;}
+  .legal-toc ol{columns:1;}
+  .legal-wrap h2{font-size:1.5rem;margin-top:48px;}
+  .legal-id{grid-template-columns:1fr;}
+  .legal-id dt{border-bottom:none;padding-bottom:4px;}
+  .legal-id dd{padding-top:4px;}
+}
